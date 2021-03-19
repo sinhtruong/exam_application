@@ -1,0 +1,43 @@
+= render 'layouts/left_sidebar'
+.page-wrapper
+  = render 'layouts/notice'
+  .page-breadcrumb
+    .row.align-items-center
+      .col-5
+        h1.page-title
+          | Tests
+      .col-7
+        .text-end.upgrade-btn
+          a.btn.btn-primary[href=new_test_path]
+            | New Test
+  .container-fluid
+    .row
+      .col-12
+        .card
+          .table-responsive
+            table.table.v-middle
+              thead
+                tr.bg-light
+                  th.border-top-0
+                    | Name
+                  th.border-top-0
+                    | Description
+                  th.border-top-0
+                    | Questions
+                  th.border-top-0[colspan="2"]
+                    | Actions
+              tbody
+                - @tests.each do |test|
+                  tr
+                    td
+                      = test.name
+                    td
+                      = test.description
+                    td
+                      = test.questions.size
+                    td
+                      = link_to 'Edit', edit_test_path(test)
+                    td
+                      = link_to 'Delete', test, method: :delete, data: { confirm: 'Are you sure?' }
+
+  = render 'layouts/footer'

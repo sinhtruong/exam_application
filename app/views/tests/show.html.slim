@@ -1,0 +1,25 @@
+= render 'layouts/left_sidebar'
+.page-wrapper
+  = render 'layouts/notice'
+  .page-breadcrumb
+    .row.align-items-center
+      .col-5
+        h1.page-title
+          | Test Detail
+    .row
+      .col-12
+        .card
+          .card-body
+            small.text-muted
+              | Name
+            h6
+              = @test.name
+            small.text-muted.p-t-30.db
+              | Description
+            h6
+              = @test.description
+
+        = link_to 'Edit', edit_test_path(@test)
+        |  |
+        = link_to 'Back', tests_path
+  = render 'layouts/footer'

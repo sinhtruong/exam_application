@@ -1,0 +1,18 @@
+hr
+.nested-fields
+  .form-row
+    = f.input :title, label: false, wrapper_html: { class: 'col-md-11' }, placeholder: 'Question title'
+    .form-group.d-flex.align-items-center
+      = link_to_remove_association f do
+        i.fa.fa-trash
+
+  = f.input :description, label: false, placeholder: 'Question description'
+  #answers
+    = f.simple_fields_for :answers do |answer|
+      = render 'answer_fields', f: answer
+    .form-group
+      .links
+        = link_to_add_association f, :answers, class: 'btn btn-purple' do
+          i.fa.fa-plus
+          span.m-l-5 Option
+

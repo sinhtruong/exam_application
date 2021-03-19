@@ -1,0 +1,7 @@
+.nested-fields
+  .form-row.d-flex.align-items-center
+    = f.input :result, label: false, wrapper_html: { class: 'col-md-8' }, placeholder: 'Answer'
+    = f.input :correct, label: 'Correct answer', wrapper_html: { class: 'col-md-3' }
+    .form-group.col-md-1
+      = link_to_remove_association f do
+        i.fa.fa-trash

@@ -1,0 +1,16 @@
+= render 'layouts/left_sidebar'
+.page-wrapper
+  = render 'layouts/notice'
+  .page-breadcrumb
+    .row.align-items-center
+      .col-5
+        h1.page-title
+          | Editing Test
+  .container-fluid
+    .row
+      .col-md-6
+        .card
+          = render 'form', test: @test
+          = link_to 'Back', tests_path
+
+  = render 'layouts/footer'

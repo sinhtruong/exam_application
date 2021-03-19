@@ -1,0 +1,17 @@
+= simple_form_for test, html: { class: 'form-horizontal form-material mx-2 my-2' } do |f|
+  = render 'shared/error_messages', object: f.object
+  = f.input :name
+  = f.input :description
+  .flex-row.d-flex.align-items-between
+    .form-group
+      h3 Questions
+
+  #questions
+    = f.simple_fields_for :questions do |question|
+      = render 'question_fields', f: question
+    .form-group
+      .links
+        = link_to_add_association f, :questions, class: 'btn btn-purple' do
+          i.fa.fa-plus
+          span.m-l-5 Question
+  = f.button :submit, class: 'btn btn-success text-white'

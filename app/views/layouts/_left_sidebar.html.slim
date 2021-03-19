@@ -1,0 +1,56 @@
+#navbarSupportedContent.navbar-collapse.collapse[data-navbarbg="skin5"]
+  ul.navbar-nav.float-start.me-auto
+    li.nav-item.search-box
+      a.nav-link.waves-effect.waves-dark[href="javascript:void(0)"]
+        i.ti-search
+      form.app-search.position-absolute
+        input.form-control[type="text" placeholder="Search &amp; enter"]
+        a.srh-btn
+          i.ti-close
+  ul.navbar-nav.float-end
+    li.nav-item.dropdown
+      a#navbarDropdown.nav-link.dropdown-toggle.text-muted.waves-effect.waves-dark.pro-pic[href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"]
+        img.rounded-circle[src=image_path("users/1.jpg") alt="user" width="31"]
+      ul.dropdown-menu.dropdown-menu-end.user-dd.animated[aria-labelledby="navbarDropdown"]
+
+      a.dropdown-item[href="javascript:void(0)"]
+        i.ti-user.m-r-5.m-l-5
+        |  My Profile
+      a.dropdown-item[href="javascript:void(0)"]
+        i.ti-wallet.m-r-5.m-l-5
+        |  My Balance
+      a.dropdown-item[href="javascript:void(0)"]
+        i.ti-email.m-r-5.m-l-5
+        |  Inbox
+aside.left-sidebar[data-sidebarbg="skin6"]
+  .scroll-sidebar
+    nav.sidebar-nav
+      ul#sidebarnav
+        - if user_signed_in?
+          li
+            .user-profile.d-flex.no-block.dropdown.m-t-20
+              .user-pic
+                img.rounded-circle[src=image_path("users/1.jpg") alt="users" width="40"]
+              .user-content.hide-menu.m-l-10
+                a#Userdd[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+                  h5.m-b-0.user-name.font-medium
+                    | Profile
+                    i.fa.fa-angle-down
+                  span.op-5.user-email
+                    = current_user.email
+                .dropdown-menu.dropdown-menu-end[aria-labelledby="Userdd"]
+                  a.dropdown-item[href=destroy_user_session_path data-method='delete']
+                    i.fa.fa-power-off.m-r-5.m-l-5
+                    |  Logout
+                  /= link_to('Logout', destroy_user_session_path, method: :delete)
+        li.sidebar-item
+          a.sidebar-link.waves-effect.waves-dark.sidebar-link[href=users_path aria-expanded="false" class=active_class('users')]
+            i.fa.fa-user-circle
+            span.hide-menu.m-l-5
+              | Users
+        li.sidebar-item
+          a.sidebar-link.waves-effect.waves-dark.sidebar-link[href=tests_path aria-expanded="false" class=active_class('tests')]
+            i.fa.fa-tasks
+            span.hide-menu.m-l-5
+              | Tests
+

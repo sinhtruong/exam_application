@@ -1,0 +1,20 @@
+.logo-text{
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  height: 64px;
+  padding: 16px 0 16px 24px;
+}
+.light-logo{
+  height: 100%;
+}
+#main-wrapper[data-layout=vertical][data-sidebartype=full] .page-wrapper.page-fluid{
+  margin-left: 0;
+  margin-right: 0;
+}
+.items-center{
+  margin: auto;
+}
+#answers{
+  margin-left: 20px;
+}

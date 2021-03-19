@@ -1,0 +1,49 @@
+= render 'layouts/left_sidebar'
+.page-wrapper
+  = render 'layouts/notice'
+  .page-breadcrumb
+    .row.align-items-center
+      .col-5
+        h1.page-title
+          | Users
+      .col-7
+        .text-end.upgrade-btn
+          a.btn.btn-primary[href=new_user_path]
+            | New User
+  .container-fluid
+    .row
+      .col-12
+        .card
+          .table-responsive
+            table.table.v-middle
+              thead
+                tr.bg-light
+                  th.border-top-0
+                    | Name
+                  th.border-top-0
+                    | Email
+                  th.border-top-0
+                    | Role
+                  th.border-top-0[colspan="2"]
+                    | Actions
+              tbody
+                - @users.each do |user|
+                  tr
+                    td
+                      .d-flex.align-items-center
+                        .m-r-10
+                          a.btn.btn-circle.d-flex.btn-info.text-white
+                            = user.name.slice(0..1).upcase rescue nil
+                        div
+                          h4.m-b-0.font-16
+                            = link_to user.name, user
+                    td
+                      = user.email
+                    td
+                      = user.display_role
+                    td
+                      = link_to 'Edit', edit_user_path(user)
+                    td
+                      = link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }
+
+  = render 'layouts/footer'

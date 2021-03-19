@@ -1,0 +1,30 @@
+= render 'layouts/left_sidebar'
+.page-wrapper
+  = render 'layouts/notice'
+  .page-breadcrumb
+    .row.align-items-center
+      .col-5
+        h1.page-title
+          | User Detail
+    .row
+      .col-12
+        .card
+          .card-body
+            small.text-muted
+              | Name
+            h6
+              = @user.name
+            small.text-muted.p-t-30.db
+              | Email
+            h6
+              = @user.email
+
+            small.text-muted.p-t-30.db
+              | Role
+            h6
+              = @user.display_role
+
+        = link_to 'Edit', edit_user_path(@user)
+        |  |
+        = link_to 'Back', users_path
+  = render 'layouts/footer'

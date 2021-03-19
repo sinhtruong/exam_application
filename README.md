@@ -3,6 +3,7 @@ Generate seed data
 rake db:seed
 
 ===================
+
 API Document
 
 https://documenter.getpostman.com/view/675119/Tz5v3avo

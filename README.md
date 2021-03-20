@@ -1,3 +1,11 @@
+Deloyed on heroku
+
+https://quiet-citadel-52503.herokuapp.com/users/sign_in
+email: teacher@example.com
+password: 12345678
+
+=====================
+
 Generate seed data
 
 rake db:seed
